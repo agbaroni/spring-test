@@ -20,7 +20,7 @@ components:
           spec:
             containers:
               - name: my-postgres
-                image: docker.io/postgres
+                image: postgres
                 ports:
                   - containerPort: 5432
                 env:
