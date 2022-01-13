@@ -8,12 +8,6 @@ projects:
       type: git
       location: https://github.com/agbaroni/spring-test.git
 components:
-  - alias: che-theia
-    type: cheEditor
-    id: eclipse/che-theia/next
-  - alias: che-machine-exec
-    type: chePlugin
-    id: eclipse/che-machine-exec-plugin/latest
   - alias: my-postgres
     type: kubernetes
     referenceContent: |
