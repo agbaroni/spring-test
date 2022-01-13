@@ -28,7 +28,7 @@ components:
               - name: my-postgres
                 image: docker.io/postgres
                 ports:
-                  containerPort: 5432
+                  - containerPort: 5432
                 env:
                   - name: POSTGRES_USER
                     value: user1
