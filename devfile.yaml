@@ -1,0 +1,38 @@
+# List all plugins: curl -k https://plugin-registry-openshift-workspaces.apps.cluster-t8klx.t8klx.sandbox536.opentlc.com/v3/plugins/ | jq .
+apiVersion: 1.0.0
+metadata:
+  name: spring-test
+projects:
+  - name: spring-test
+    source:
+      type: git
+      location: https://github.com/agbaroni/spring-test.git
+components:
+  - alias: che-theia
+    type: cheEditor
+    id: eclipse/che-theia/next
+  - alias: che-machine-exec
+    type: chePlugin
+    id: eclipse/che-machine-exec-plugin/latest
+  - alias: my-postgres
+    type: kubernetes
+    referenceContent: |
+      kind: List
+      items:
+        - apiVersion: v1
+          kind: Pod
+          metadata:
+            name: my-postgres
+          spec:
+            containers:
+              - name: my-postgres
+                image: docker.io/postgres
+                ports:
+                  containerPort: 5432
+                env:
+                  - name: POSTGRES_USER
+                    value: user1
+                  - name: POSTGRES_PASSWORD
+                    value: password1
+                  - name: POSTGRES_DB
+                    value: db1
